@@ -1,4 +1,3 @@
-# AS simeple as possbile flask google oAuth 2.0
 from flask import Flask, redirect, url_for, session
 from authlib.integrations.flask_client import OAuth
 import os
@@ -6,11 +5,6 @@ from datetime import timedelta
 
 # decorator for routes that should be accessible only by logged in users
 from auth_decorator import login_required
-
-# dotenv setup
-# from dotenv import load_dotenv
-# load_dotenv()
-
 
 # App config
 app = Flask(__name__)
@@ -62,7 +56,6 @@ def authorize():
     session['profile'] = user_info
     session.permanent = True  # make the session permanant so it keeps existing after broweser gets closed
     return redirect('/')
-
 
 @app.route('/logout')
 def logout():
